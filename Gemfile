@@ -39,6 +39,12 @@ group :development, :test do
   gem 'pry'
 end
 
+group :test do
+  gem 'rspec-rails', '~> 3.7'
+  gem 'factory_bot_rails'
+  gem 'simplecov'
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
