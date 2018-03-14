@@ -14,9 +14,13 @@ Rails.application.configure do
 
   # Configure public file server for tests with Cache-Control for performance.
   config.public_file_server.enabled = true
-  config.public_file_server.headers = {
-    'Cache-Control' => "public, max-age=#{1.hour.seconds.to_i}"
-  }
+  # config.public_file_server.headers = {
+  #   'Cache-Control' => "public, max-age=#{2.days.seconds.to_i}"
+  # }
+
+  # Enable/disable caching.
+  # config.action_controller.perform_caching = true
+  config.cache_store = :memory_store
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
