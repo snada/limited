@@ -1,0 +1,19 @@
+language: ruby
+rvm:
+  - 2.5.0
+env:
+  global:
+    - CC_TEST_REPORTER_ID=01d25124483064641d3b36ffbfa1623064c45fb70bb0554c2ac49fe69e38c08b
+services:
+  - postgresql
+before_script:
+  - psql -c 'create database limited_test;' -U postgres
+  - cp config/database.yml.travis config/database.yml
+  - cp config/secrets.yml.example config/secrets.yml
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+script:
+  - bundle exec rake
+after_script:
+- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
