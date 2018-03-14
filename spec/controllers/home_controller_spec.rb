@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe HomeController, type: :controller do
   describe 'GET index' do
-    render_views
     let(:limit) { 100 }
     let(:expiration) { 1.hour }
     let(:request_time) { Time.local(2018) }
@@ -27,7 +26,7 @@ RSpec.describe HomeController, type: :controller do
 
       it 'should return ok as body' do
         get :index
-        expect(response.body).to include('ok')
+        expect(response.body).to eq('ok')
       end
     end
 
