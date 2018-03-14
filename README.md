@@ -39,3 +39,9 @@ This code leverages the framework's cache to save the number of performed reques
 The main application controller requires this library and exposes a very simple method, mapping by default the mentioned scope with the path requested and the consumer identifier with the remote ip of the incoming request.
 
 This should keep things easy enough to edit and mantain and integrate with future possible features, like limiting by authenticated user, sharing the same scope between calls or adding black/white lists.
+
+## Releases
+
+### 1.0.0
+
+- First release
